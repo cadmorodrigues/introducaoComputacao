@@ -1,0 +1,8 @@
+function [a]=decimalPbinario(n)
+i=n/2;
+if (fix(i)~=0)
+        decimalPbinario(n / 2);
+end
+    g=mod(n, 2);
+    fprintf('%d',fix(g) );
+end

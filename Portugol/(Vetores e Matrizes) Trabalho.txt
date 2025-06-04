@@ -1,0 +1,642 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Exercício 01: Faça um programa que carregue dois vetores com 5 valores, calcule o seno e cosseno para cada valor.
+inicioalgoritmo 
+var
+declare i de inteiro
+declare seno, cosseno, x, y de real
+declare vetor_um:vetor[1..5] de inteiros
+declare vetor_dois:vetor[1..5] de inteiros
+
+inicio
+// Seção de Comandos
+
+//Lendo vetor
+para i de 1 ate 5 passo 1 faca
+   escreva ("Entre com o",i,"º termo do 1º vetor: ")
+   leia (vetor_um[i])
+   escreva ("Entre com o",i,"º termo do 2º vetor: ")
+   leia (vetor_dois[i])
+fim para
+
+//Calculando seno e cosseno
+	//Passa o valor lido em graus para radianos, assim pode-se calcular usando as funções cos() e sen()
+	para i de 1 ate 5 passo 1 faca
+		//Vetor Um
+		x<-GraupRad((vetor_um[i]))
+		seno<-sen(x)
+		cosseno<-cos(x)
+		escreva ("O seno do",i,"º termo do 1º vetor é: ",seno)
+		escreva ("O cosseno do",i,"º termo do 1º vetor é: ",cosseno)
+		//Vetor Dois
+		y=GraupRad((vetor_dois[i]))
+		seno<-sen(y)
+		cosseno<-cos(y)
+		escreva ("O seno do",i,"º termo do 2º vetor é: ",seno)
+		escreva ("O cosseno do",i,"º termo do 2º vetor é: ",cosseno)
+	fimpara
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Exercício 02: Faça um programa que carregue um vetor de 15 posições, descubra o menor e o maior valor do vetor.
+
+inicioalgoritmo 
+var
+declare i, maior, menor de inteiro
+declare vetor:vetor[1..15] de inteiros
+maior<--9999
+menor<-9999
+
+inicio
+// Seção de Comandos
+
+//Lendo vetor
+para i de 1 ate 5 passo 1 faca
+   escreva ("Entre com o",i,"º termo do vetor: ")
+   leia (vetor[i])
+fim para
+
+	//Vendo qual é maior e qual é menor
+	para i de 1 ate 5 passo 1 faca
+		if vetor[i]>maior
+		maior<-vetor[i];
+		fim se
+		if vetor[i]<menor
+		menor<-vetor[i];
+		fim se
+	fimpara
+	
+	//Saída de Dados
+		escreva ("O maior termo é ",maior,".")
+		escreva ("O menor termo é ",menor,".")
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 03: Faça um programa que carregue um vetor de 100 posições com todos elementos iguais a 1, e um segundo vetor (100 posições) com todos elementos iguais a 2. Faça a multiplicação de um vetor pelo outro e armazene em um terceiro vetor.
+
+inicioalgoritmo 
+var
+declare i de inteiro
+declare vetor_de_um:vetor[1..100] de inteiros
+declare vetor_de_dois:vetor[1..100] de inteiros
+declare vetor_multiplicacao:vetor[1..100] de inteiros
+inicio
+// Seção de Comandos
+
+//Enchendo primeiro vetor de 1 e o segundo de 2
+para i de 1 ate 100 passo 1 faca
+   vetor_de_um[i]<-1
+   vetor_de_dois[i]<-1
+fim para
+
+	//Multiplicando um vetor pelo outro e armazenando no terceiro
+	para i de 1 ate 100 passo 1 faca
+		vetor_multiplicacao[i]<-vetor_de_um[i]*vetor_de_dois[i]
+	fimpara
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 04: Faça um programa que carregue um vetor com as notas de um aluno, e um segundo vetor com os pesos de cada nota. Calcule a média ponderada.
+
+inicioalgoritmo 
+var
+declare i, n de inteiro
+declare numerador, denominador, media real
+inicio
+// Seção de Comandos
+
+//Entrando com número de notas
+   escreva ("Entre com numero de notas: ")
+   leia (n)
+
+declare vetor_nota[1..n] de inteiros
+declare vetor_peso:vetor[1..n] de inteiros
+
+	//Lendo notas e peso das mesmas
+	//Lendo vetor
+	para i de 1 ate n passo 1 faca
+ 	  escreva ("Entre com a",i,"ª nota do aluno: ")
+  	 leia (vetor_nota[i])
+   	escreva ("Entre com o peso da ",i,"ª nota do aluno: ")
+  	 leia (vetor_peso[i])
+	fim para
+
+		//Calculando média ponderada
+		//Sabe-se que a média ponderada é feita dos valores multiplicados pelo seus pesos divididos pela soma dos pesos
+		numerador<-0
+		denominador<-0
+		para i de 1 ate n passo 1 faca
+ 	  	numerador=numerador+(vetor_nota[i]*vetor_peso[i])
+  		denominador=denominador+vetor_peso[i]
+		fim para
+		media<-numerador/denominador
+
+
+			//Saída de Dados
+			escreva ("A média ponderada é ",media,".")
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 05: Faça um programa que carregue dois vetores de 20 posições cada com valores reais, verifique se esses vetores são iguais.
+
+inicioalgoritmo 
+var
+declare i de inteiro
+declare vetor_um:vetor[1..20] de inteiros
+declare vetor_dois:vetor[1..20] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com os vetores
+   para i de 1 ate 20 passo 1 faca
+   escreva ("Entre com o ",i,"º termo do vetor 1: ")
+   leia (vetor_um[i])
+   escreva ("Entre com o ",i,"º termo do vetor 2: ")
+   leia (vetor_dois[i])
+
+	//Testando se são iguais
+	para i de 1 ate 20 passo 1 faca
+ 	    se vetor_um[i]==vetor_dois[i]
+		escreva ("O ",i,"º termo do vetor 1 é igual ao ",i,"º do vetor 2.")
+	    senao
+   		escreva ("O ",i,"º termo do vetor 1 não é igual ao ",i,"º do vetor 2, portando eles não são iguais.")
+	    fim se
+	fim para
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Exercício 06: Faça um programa que leia um vetor com 40 com as notas de uma turma e que calcule o seguinte:
+//• Percentagem das notas positivas (> = 10);
+//• Percentagem das notas negativas (< 10 );
+//• Média das notas positivas;
+//• Média das notas negativas;
+//• Média geral das notas.
+
+inicioalgoritmo 
+var
+declare i, notas_positivas, notas_negativas de inteiro
+declare media_negativas, media_positivas, media_geral, somatorio_positivas, somatorio_negativas, somatorio_notas de real
+declare vetor_notas:vetor[1..40] de real
+
+inicio
+// Seção de Comandos
+
+//Lendo vetor
+para i de 1 ate 40 passo 1 faca
+   escreva ("Entre com a nota do",i,"º aluno: ")
+   leia (vetor_notas[i])
+fim para
+
+	//Realizando conferências pedidas
+	notas_positivas<-0
+	notas_negativas<-0
+	somatorio_notas<-0
+	somatorio_positivas<-0
+	somatorio_negativas<-0
+	para i de 1 ate 40 passo 1 faca
+		if vetor_notas[i]=>10
+			notas_positivas<-notas_positivas+1
+			somatorio_positivas<-somatorio_positivas+vetor_notas[i]
+		fim se
+		if vetor_notas[i]<10
+			notas_negativas<-notas_negativas+1
+			somatorio_negativas<-somatorio_negativas+vetor_notas[i]
+		fim se
+		somatorio_notas<-somatorio_notas+vetor_notas[i]
+	fimpara
+		
+	//Calculando média
+	media_geral<-somatorio_notas/40
+	media_positivas<-somatorio_positivas/notas_positivas
+	media_negativas<-somatorio_negativas/notas_negativas
+
+		//Saída de Dados
+		escreva ("A percentagem das notas positivas foi de ", media_positivas/100,".")
+		escreva ("A percentagem das notas negativas foi de ", media_negativas/100,".")
+		escreva ("A media das notas positivas foi de ", media_positivas,".")
+		escreva ("A media das notas negativas foi de ", media_negativas,".")
+		escreva ("A media geral das notas foi de", media_geral,".")
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 07: Faça um programa que receba uma matriz 4x3 de inteiros, e que retorne a matriz transposta. (Use PARA)
+
+inicioalgoritmo 
+var
+declare i,j de inteiro
+declare matriz:vetor[1..4,1...3] de inteiros
+declare matriz:vetor[1..3,1...4] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com a matriz
+   para i de 1 ate 4 passo 1 faca
+	   para J de 1 ate 3 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j": ")
+  	    leia (matriz[i,j])
+	   fim para
+   fim para
+
+		//Achando transposta
+		para i de 1 ate 3 passo 1 faca
+			para j de 1 ate passo 1 4 faca
+			transposta[i,j]<-(matriz[j,i])
+			fim para
+		fim para
+			
+			//Imprimindo a transposta
+			para i de 1 ate 3 passo 1 faca
+				para j de 1 ate 4 passo 1 faca
+				escreva(transposta(i,j))
+				fim para
+			fim para
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 08: Faça um programa que carregue uma matriz X 2x3, com números inteiros cada um, o usuário deverá escolher a opção de acordo com o Menu a seguir
+1- Soma de todas as posições da matriz.
+2 – Resultado da Soma de cada linha da matriz
+3 – Resultado da Soma de cada coluna da matriz
+
+inicioalgoritmo 
+var
+declare i,j, soma, soma_linha1,soma_linha2, soma_coluna1,soma_coluna2,soma_coluna3 de inteiro
+declare X:vetor[1..2,1...3] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com a matriz
+   para i de 1 ate 2 passo 1 faca
+	   para j de 1 ate 3 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j": ")
+  	    leia (X[i,j])
+	   fim para
+   fim para
+
+		//Mostrando opcoes para usuario decidir o que fazer
+		escreva ("Escolha uma das opcoes: 1- Soma de todas as posições da matriz, 2 – Resultado da Soma de cada linha da matriz, 3 – Resultado da Soma de cada coluna da matriz")
+		leia(op)
+		
+		//Fazendo o que foi escolhido
+		se op==1
+			soma<-0
+			para i de 1 ate 2 passo 1 faca
+	  			para j de 1 ate 3 passo 1 faca 
+				soma<-soma+X[i,j]
+				fim para
+			fim para
+		escreva("A soma de todos os termos é igual a ",soma,".")
+		fim se
+
+		se op==2
+			soma_linha1<-0
+			soma_linha2<-0
+			para i de 1 ate 2 passo 1 faca
+	  			para j de 1 ate 3 passo 1 faca 
+					se i==1
+					soma_linha1=soma_linha1+X[i,j]
+					fim se
+					se i==2
+					soma_linha2=soma_linha2+X[i,j]
+					fim se
+				fim para
+			fim para
+				escreva("A soma dos termos das linhas é ",soma_linha1," e ",soma_linha2,".")
+		fim se
+
+		se op==3
+			soma_coluna1<-0
+			soma_coluna2<-0
+			soma_coluna3<-0
+			para i de 1 ate 2 passo 1 faca
+	  			para j de 1 ate 3 passo 1 faca 
+					se j==1
+					soma_coluna1=soma_coluna1+X[i,j]
+					fim se
+					se i==2
+					soma_coluna2=soma_coluna2+X[i,j]
+					fim se
+					se j==3
+					soma_coluna3=soma_coluna3+X[i,j]
+					fim se
+				fim para
+			fim para
+		escreva("A soma dos termos das colunas é ",soma_coluna1,", ",soma_coluna2," e ",soma_coluna3,".")
+		fim se
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 09: Desenvolver um programa que leia umas matrizes X 3x3 , calcule e mostre o determinante dessa matriz. Tente fazer utilizando o PARA, caso não consiga faça manual.
+
+inicioalgoritmo 
+var
+declare i,j de inteiro
+declare X:vetor[1..3,1...3] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com a matriz
+   para i de 1 ate 3 passo 1 faca
+	   para J de 1 ate 3 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j": ")
+  	    leia (matriz[i,j])
+	   fim para
+   fim para
+
+		//Calculando determinante
+		determinante=X[1,1]*X[2,2]*X[3,3]+X[1,2]*X[2,3]*X[3,1]+X[1,3]*X[2,1]*X[3,2]-(X[3,3]*X[2,1]*X[1,2]+X[3,2]*X[2,3]*X[1,1]+X[3,1]*X[2,2]*X[1,3])
+			
+			//Imprimindo o Determinante
+				escreva(determinante)
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 10: Desenvolver um programa que leia duas matrizes m x n (m=4 e n=4), calcule e escreva a matriz resultante da soma das matrizes lidas.
+
+inicioalgoritmo 
+var
+declare i,j de inteiro
+declare matriz_um:vetor[1..4,1...4] de inteiros
+declare matriz_dois:vetor[1..4,1...4] de inteiros
+declare matriz_tres:vetor[1..4,1...4] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com as matrizes
+   para i de 1 ate 4 passo 1 faca
+	   para j de 1 ate 4 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 1: ")
+  	    leia (matriz_um[i,j])
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 2: ")
+  	    leia (matriz_dois[i,j])
+	   fim para
+   fim para
+
+		//Somando termos e salvando na terceira matriz
+			para i de 1 ate 4 passo 1 faca
+	  			para j de 1 ate 4 passo 1 faca 
+				matriz_tres[i,j]=matriz_um[i,j]+matriz_dois[i,j]
+				fim para
+			fim para
+
+			//Imprimindo matriz resultante
+			para i de 1 ate 4 passo 1 faca
+	  			para j de 1 ate 4 passo 1 faca 
+				escreva(matriz_tres[i,j])
+				fim para
+			fim para
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 11: Faça um programa que carregue uma primeira matriz de ordem 4x5 e uma segunda matriz 5x2, calcule e mostre a matriz resultado do produto matricial das duas matrizes anteriores, armazenando-o em uma terceira matriz de ordem 4 x 2.(Tentar fazer utilizando o PARA, caso não consiga faça manual)
+
+inicioalgoritmo 
+var
+declare i,j de inteiro
+declare matriz_um:vetor[1..4,1...5] de inteiros
+declare matriz_dois:vetor[1..5,1...4] de inteiros
+declare matriz_tres:vetor[1..4,1...2] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com as matrizes
+   para i de 1 ate 4 passo 1 faca
+	   para j de 1 ate 4 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 1: ")
+  	    leia (matriz_um[i,j])
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 2: ")
+  	    leia (matriz_dois[i,j])
+	   fim para
+   fim para
+
+		//Realizando multiplicação de matrizes
+			para i de 1 ate 4 passo 1 faca
+	  			para j de 1 ate 2 passo 1 faca 
+				matriz_tres[i,j]=matriz_um[i,j]*matriz_dois[j,i]
+				fim para
+			fim para
+
+			//Imprimindo matriz resultante
+			para i de 1 ate 4 passo 1 faca
+	  			para j de 1 ate 2 passo 1 faca 
+				escreva(matriz_tres[i,j])
+				fim para
+			fim para
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 12: A teoria de sistemas define-se o elemento MINMAX de uma matriz como sendo o maior elemento da linha onde se encontra o menor elemento da matriz. Faça um programa que carregue uma matriz 4x7 com números reais, calcule e mostre seu MINMAX e sua posição (linha e coluna).
+inicioalgoritmo 
+var
+declare i,j,linha,coluna,menor,maior de inteiro
+declare matriz_um:vetor[1..4,1...7] de inteiros
+menor<-99999999
+maior<--99999999
+inicio
+// Seção de Comandos
+
+//Entrando com a matrize
+   para i de 1 ate 4 passo 1 faca
+	   para j de 1 ate 7 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 1: ")
+  	    leia (matriz_um[i,j])
+	   fim para
+   fim para
+
+		//Procurando menor termo
+			para i de 1 ate 4 passo 1 faca
+	  			para j de 1 ate 7 passo 1 faca 
+					se matriz_um[i,j]<menor
+					menor<-matriz_um[i,j]
+					linha<-i
+					coluna<-j
+					sim se
+				fim para
+			fim para
+		
+		//Procurando maior termo na linha que tem menor termo
+			para j de 1 ate 7 passo 1 faca
+				se matriz_um[linha,j]>maior
+					maior<-matriz_um[linha,j]
+				fim se
+			fim para
+
+			//Imprimindo matriz MINMAX
+			escreva("O MINMAX estava na linha ",linha,", coluna ",coluna," e é ",maior,".")
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 13: Faça um programa que carregue uma matriz 7x7 de números inteiros e crie dois vetores de sete posições cada um e que contenham, respectivamente, o maior elemento de cada uma das linhas e o menor elemento de cada uma das colunas. Escreva a matriz A e os dois vetores.
+
+inicioalgoritmo 
+var
+declare i,j,menor,maior de inteiro
+declare matriz:vetor[1..7,1...7] de inteiros
+declare vetor_maiores:vetor[1..7] de inteiros
+declare vetor_menores:vetor[1..7] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com a matriz
+   para i de 1 ate 7 passo 1 faca
+	   para j de 1 ate 4 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 1: ")
+  	    leia (matriz[i,j])
+	   fim para
+   fim para
+
+		//Pegando maior de cada linha
+			maior<--99999
+			para j de 1 ate 7 passo 1 faca
+	  			para i de 1 ate 7 passo 1 faca 
+					se matriz[i,j]>maior
+						vetor_maiores[i]<-matriz[i,j]
+						maior<-matriz[i,j]
+					fim se
+				fim para
+			fim para
+		
+		menor<-999999
+		//Pegando menor de cada coluna
+			para i de 1 ate 7 passo 1 faca
+	  			para j de 1 ate 7 passo 1 faca 
+					se matriz[i,j]<menor
+						vetor_maiores[j]<-matriz[i,j]
+						menor<-matriz[i,j]
+					fim se
+				fim para
+			fim para
+
+			//Imprimindo dados
+			para i de 1 ate 7 passo 1 faca
+	  			para j de 1 ate 7 passo 1 faca 
+				escreva(matriz[i,j])
+				fim para
+			fim para
+
+			para i de 1 ate 7 passo 1 faca
+				escreva(vetor_maiores[i])
+			fim para
+
+			para i de 1 ate 7 passo 1 faca
+				escreva(vetor_menores[i])
+			fim para
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 14: Faça um programa onde o torcedor deverá informar o seu código e o (código) time que torce, coloque o código do torcedor na poltrona de acordo com a ordem estabelecida. Considere que existe uma fila de cruzeirense e outra de atleticanos.
+
+inicioalgoritmo 
+var
+declare i,j,numero_bancos,codigo, time de inteiro
+declare onibus:vetor[1..5,1...24] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando comos zeros em toda a matriz
+     para i de 1 ate 24 passo 1 faca
+      para j de 1 ate 24 passo 1 faca
+          onibus[i,j]<-0
+      fim para
+
+		//Pegando código do torcedor e do time
+		numero_bancos<-96
+		enquanto numero_bancos>0	
+			escreva("Se for atleticano, entre com 1. Para Cruzeirense, entre com 2.")
+			leia(time)
+			escreva("Entre com seu código")
+			leia(codigo)
+				se time==1
+					se onibus[2,codigo] ~=0
+						onibus[2,codigo]<-'A'
+					senao
+						onibus[4,codigo]<-'A'
+					fim se
+				se time==2
+					se onibus[1,codigo] ~=0
+						onibus[1,codigo]<-'C'
+					senao
+						onibus[3,codigo]<-'C'
+					fim se
+
+			//Imprimindo dados
+			para i de 1 ate 24 passo 1 faca
+	  			para j de 1 ate 24 passo 1 faca 
+				escreva(onibus[i,j])
+				fim para
+			fim para
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 15: Faça um programa que carregue uma matriz 8x8 com números inteiros e mostre uma mensagem dizendo se a matriz digitada é simétrica. Uma matriz simétrica possui A[i,j] = A[j,i];
+
+inicioalgoritmo 
+var
+declare i,j de inteiro
+declare matriz:vetor[1..8,1...8] de inteiros
+inicio
+// Seção de Comandos
+
+//Entrando com a matriz
+   para i de 1 ate 8 passo 1 faca
+	   para j de 1 ate 8 passo 1 faca
+   	    escreva ("Entre com o termo da linha ",i," e coluna "j" da matriz 1: ")
+  	    leia (matriz[i,j])
+   fim para
+
+		//Vendo se é simétrica
+			para i de 1 ate 8 passo 1 faca
+	  			para j de 1 ate 8 passo 1 faca 
+					se matriz[i,j]~=matriz[j,i]
+						escreva("Matriz não é simétrica!')
+						encerrar algoritmo
+					senao
+						escreva("Matriz simétrica")
+					fim se
+				fim para
+			fim para
+
+fimalgoritmo
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 16: Faça um programa para preencher um vetor cujo valor começa de pi, intervalo de 0.2 até 4*pi. Calcule e mostre quantas posições tem o vetor.
+
+inicioalgoritmo 
+var
+declare j,i, posicoes de inteiro
+declare vetor:vetor[1..100000] de inteiros
+posicoes<-0
+j<-1
+inicio
+// Seção de Comandos
+
+//Entrando com a matriz
+   para i de pi ate 4*pi passo 0.2 faca
+	   vetor[j]<-i
+	   posicoes<-posicoes+1
+	   j<-j+1
+   fim para
+
+	//Informando numero de posições
+	escreva("O vetor possui ",posicoes," posicoes.")
+
+fimalgoritmo
+
+
+
+
+
+
+
+
+
+
+

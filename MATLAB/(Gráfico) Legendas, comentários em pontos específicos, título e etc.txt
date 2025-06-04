@@ -1,0 +1,20 @@
+clear;
+clc;
+clf;
+
+t = [2 4 6 8 10 12 14 16 18];
+T400 = [127 115 101 98 97 92 92 85 82];
+T450 = [127 105 103 103 96 95 69 69 69];
+
+plot (t, T400,'--r', t, T450, '-.b');
+hold on;
+scatter(14, 69);
+hold on;
+scatter(18, 82);
+hold on;
+title ('Dureza (HB) x Tempo (min)');
+xlabel ('Tempo (min)');
+ylabel ('Dureza (HB)');
+legend('400ºC','500ºC');
+text (14.5,68,'Recristalizado');
+text (16,78,'Recristalizado');

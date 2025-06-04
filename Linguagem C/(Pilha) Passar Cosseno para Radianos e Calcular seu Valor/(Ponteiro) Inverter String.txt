@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+void inverte(char str1[50],char str2[50])
+{
+    int cont1,cont2;
+    cont2 = strlen(str1) - 1 ;
+    for(cont1 = 0; cont1 < strlen(str1) ; cont1++)
+    {
+        str2[cont2] = str1[cont1];
+        cont2--;
+    }
+    str2[cont1] = '\0';
+    printf("%s\n",str2);
+}      
+
+int main()
+{
+    char *str1,str2[50];
+    printf("Digite seu nome: ");
+    scanf("%s",&str1);
+    inverte(&str1,str2);
+    return 0;
+}

@@ -1,0 +1,34 @@
+clc
+clear
+aprovados=0;
+
+for i=1:10
+    gabarito(i)=input('Entre com a resposta correta da questao: ');
+end
+
+numaluno=0;
+while numaluno~=999
+    %ler aluno
+    numaluno=input('Entre com o numero do aluno: ');
+    %ler nota
+    for i=1:10
+    notas(i)=input('Entre com a resposta do aluno: ');
+    end
+    
+    respostascertas=0;
+    for i=1:10
+        if gabarito(i)==notas(i)
+            respostascertas=respostascertas+1;
+        end
+    end
+
+    %media de notas
+    if respostascertas>6
+        aprovados=aprovados+1;
+    end
+    
+    %frequencia
+    nota=notas(numaluno);
+    frequencia(nota)=frequencia(nota)+1;
+    numaluno=numaluno+1;
+end

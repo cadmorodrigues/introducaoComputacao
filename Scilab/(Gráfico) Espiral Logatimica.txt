@@ -1,0 +1,69 @@
+--------------------------------------------------------- Enunciado ---------------------------------------------------------
+
+COORDENADAS POLARES
+Uma Espiral logaritmica é expressa pelas equações polares:
+	Rho = e^(a*Theta).
+
+Onde:
+	Theta >= 0 (sentido anti-horário) e a <> 0.
+	Theta <= 0 (sentido horário) e a <> 0.
+
+Por intermédio da função polarplot do SciLab apresentar as seguintes equações polares:
+	1) Rho = e^Theta
+	2) Rho = e^(-0.9*Theta)
+	3) No mesmo gráfico apresentar as equações polares:
+		Rho = e^Theta e Rho = e^(0.9*Theta)
+	4) No mesmo gráfico apresentar as equações polares:
+		Rho = e^-Theta e Rho = e^(-0.5*Theta)
+Theta pertence ao intervalo [0,2*pi].
+O intervalo de Theta deve variar de 0,01 em 0,01.
+
+Os gráficos devem ser apresentados utilizando a função subplot
+Apresentar os quatro gráficos em uma janela (figura) com 2x2 gráficos.
+
+SUGESTÕES:
+	Consultar help plolarplot e help subplot.
+	Bibliografia sobre coordenadas polares:
+		MUSTAFA A. MUNEM e DAVID J. FOULIS, Cálculo, 1978, Volume 1, Editora
+		Guanabara Dois, Capítulo 11, Coordenadas Polares e Rotação de Eixos,
+		páginas 529 a 569.
+
+O QUE DEVE SER FEITO?
+	Um programa que calcule as equações polares solicitadas e gere um
+	ÚNICO gráfico com subgráficos, ou seja, mostrando os quatro gráficos
+	das respecitivas equações solicitadas em um ÚNICO gráfico.
+
+	Cada gráfico deve ter um título que seria a equação do gráfico.
+
+O QUE DEVE SER ENVIADO (ENTREGUE)?
+	Deve ser enviado via SGA, até as 23:59 horas do dia 17/05/2015, um ÚNICO
+	arquivo de extensão SCE, SEM COMPACTAÇÃO.
+
+	NÃO É PARA COMPACTAR O DIRETÓRIO.
+
+OBSERVAÇÃO FINAL:
+	Faz parte da avaliação do trabalho o PODER DE DISCERNIMENTO e 
+	CONCLUSÃO (DECISÃO), ASSIDUÍDADE (pontualidade), CORRETUDE.
+
+--------------------------------------------------------- Resolução ---------------------------------------------------------
+
+Theta=0:0.01:2*%pi
+e=2.7182818284
+Rho = e^Theta
+subplot(2,2,1)
+polarplot(Theta,Rho)
+title("Rho = e^Theta")
+Rho = e^(-0.9*Theta)
+subplot(2,2,2)
+polarplot(Theta,Rho)
+title("Rho = e^(-0.9*Theta)")
+Rho = e^Theta
+Rho = e^(0.9*Theta)
+subplot(2,2,3)
+polarplot(Theta,Rho)
+title("Rho = e^Theta e Rho = e^(0.9*Theta)")
+Rho = e^-Theta
+Rho = e^(-0.5*Theta)
+subplot(2,2,4)
+polarplot(Theta,Rho)
+title("Rho = e^-Theta e Rho = e^(-0.5*Theta)")

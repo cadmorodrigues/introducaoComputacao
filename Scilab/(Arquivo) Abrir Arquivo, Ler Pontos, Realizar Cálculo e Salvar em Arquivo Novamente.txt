@@ -1,0 +1,37 @@
+﻿--------------------------------------------------------- Resolução ---------------------------------------------------------
+
+arquivo= mopen("pontos-12.txt","r")
+numerodepontos = mfscanf(arquivo, "%i")
+for i=1:1:numerodepontos
+    X(i)=mfscanf (arquivo, "%i")
+    Y(i)= mfscanf (arquivo, "%i")
+end
+mclose(arquivo)
+sx=0
+sy=0
+y2=0
+x2=0
+xy=0
+n= numerodepontos
+for i=1:1:n
+    sx= sx + X(i)
+    sy= sy + Y(i)
+    y2= ((Y(i))^2) + y2
+    x2=((X(i))^2)+ x2
+    xy=(X(i)* Y(i))+ xy
+end
+a= ((n * xy)-(sx*sy))/((n * x2) - ((sx)^2))
+b= ((sy * x2) - (sx * xy))/(( n * x2) -((sx)^2))
+R= ((n * xy) - (sx * sy))/((sqrt((n * x2) - ((sx)^2))) * (sqrt ((n * y2) - ((sy)^2)))) 
+printf("\n---------------------------------------------\n531804 - Rubens Brito Vasconcellos\n\nEquação da reta: y=%.1f x + %.1f\nCoeficiente de correlação: R = %.1f \n---------------------------------------------",a,b, R)
+saida=mopen("531804-rubens-brito.txt","w")
+mfprintf(saida,"\n---------------------------------------------\n531804-Rubens Brito Vasconcellos\n\nEquação da reta: y=%.1f x + %.1f\nCoeficiente de correlação: R = %.1f \n---------------------------------------------",a,b, R)
+mclose(saida)
+clf
+plot2d(X,Y,-3)
+Z=min(X)-5:0.1:max(X)+5
+W=Z*a+b
+plot2d(Z,W)
+title("Regressão Linear")
+xlabel("X")
+ylabel("Y")

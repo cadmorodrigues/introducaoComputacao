@@ -1,0 +1,87 @@
+RESOLUÇÕES
+1)SCRIPT:
+
+i=@(t)(t^5+t^2-4)
+t0=5;
+G=@(t)(sqrt(4/(t^3+1)))
+a=10;
+while a>0
+    t0=G(t0)
+    a=a-1;
+end
+
+>> Untitled2
+
+i =     @(t)(t^5+t^2-4)
+
+G =     @(t)(sqrt(4/(t^3+1)))
+
+t0 =    0.1782
+
+t0 =    1.9944
+
+t0 =    0.6692
+
+t0 =    1.7543
+
+t0 =    0.7906
+
+t0 =    1.6362
+
+t0 =    0.8622
+
+t0 =    1.5612
+
+t0 =    0.9124
+
+t0 =    1.5078
+
+2)SCRIPT:
+f=inline('(w^3)+(7*w)-29');
+ao=input('digite o 1º valor do intervalo:');
+bo=input('digite o 2º valor do intervalo:');
+Ep=input('Insira o valor para o erro:');
+if f(bo)*f(ao)>0
+    disp ('Não tem raiz nesse intervalo')
+else 
+    while (bo-ao)>Ep
+        w=(ao+bo)/2;
+        if f(w)*f(ao)>0
+            ao=w;
+        else
+            bo=w;
+        end
+    end
+    y=(ao+bo)/2;
+    disp('A raiz é')
+    disp(y);
+end
+
+>> Untitled3
+digite o 1º valor do intervalo:0
+digite o 2º valor do intervalo:6
+Insira o valor para o erro:0.0001
+A raiz é
+    2.3317
+
+3)  Ponto da parábola mais próximo da reta é (0,0.5)
+
+
+
+
+
+4) A) >> [P, Q]= meshgrid(0:.5:10, 0:.5:10);
+>> mesh(P,Q,1/2*P.^2+3*Q.^-1)
+>> title('Gráfico da superfície A')
+>> xlabel('P')
+>> ylabel('Q')
+>> zlabel('H(P,Q)')
+
+
+
+B) >> [P, Q]= meshgrid(-3*pi:0.5:3*pi, -3*pi:0.5:3*pi)
+>> mesh(P,Q,2.*P.*sin(Q))
+>> title('Gráfico da superfície B')
+>> xlabel('P')
+>> ylabel('Q')
+>> zlabel('H(P,Q)')

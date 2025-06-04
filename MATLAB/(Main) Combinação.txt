@@ -1,0 +1,22 @@
+function fat = funcao_fatorial (numero)
+  fat = 1;
+      for aux=1:1:numero
+        {
+            fat=fat*aux;
+        }
+end
+
+
+function comb = funcao_combinacao(n,p)
+
+comb= funcao_fatorial(n) / (função_fatorial(p) * função_fatorial(n-p));
+
+end
+
+
+%Script principal
+
+n=input(‘Entre com o valor de n: ‘);
+p=input(‘Entre com o valor de p: ‘);
+comb=função_combinacao(n,p);
+fprintf(‘A combinação é %.2f’,comb);

@@ -1,0 +1,196 @@
+---------------------------------------------------- Função Inicializar ----------------------------------------------------
+function voos = inicializar ()
+%Vamos aqui considerar uma matriz 50x11, onde a primeira coluna de cada linha respresenta o número do voo e as 10 colunas em sua frente a identidade de cada passageiro.
+
+%Onde tiver zero, o assento estará desocupado ou o vôo não exestirá
+voos=zeros(50,11)
+
+%A primeira coluna representa o número do voo, a preenchendo então
+aux=1001;
+for linha=1:1:10
+    voos(linha,1)=aux;
+    aux=aux+1;
+end
+aux=2001;
+for linha=11:1:20
+    voos(linha,1)=aux;
+    aux=aux+1;
+end
+
+aux=3001;
+for linha=21:1:30
+    voos(linha,1)=aux;
+    aux=aux+1;
+end
+
+aux=4001;
+for linha=31:1:40
+    voos(linha,1)=aux;
+    aux=aux+1;
+end
+
+aux=5001;
+for linha=41:1:50
+    voos(linha,1)=aux;
+    aux=aux+1;
+end
+
+return voos,
+
+
+---------------------------------------------------- Função Incluir ----------------------------------------------------
+
+function [voos, resultado] = incluir(vooss,idd,nvooo)
+%Percorrendo matriz voos
+for l=1:1:50
+    for c=1:1:11
+        if vooss(l,c)=~nvoo
+            resultado=0;
+        end
+        if vooss(l,c)==nvoo
+            for cc=2:1:11
+                if vooss(l,c)~=0
+                    resultado=1;
+                    end
+                if vooss(l,cc)==0
+                    &adicionando numero do voo
+                    vooss(l,cc)=nvoo;
+                    resultado=2;
+                    cc=12; %faz com que saia desse for para n reptir mais passageiro
+                 end
+             end
+         end
+      end
+  end
+end
+
+%Passando a matriz auxiliar vooss para voos e a retornando ao programa principal
+voos=vooss;
+
+return voos, resultado
+
+
+---------------------------------------------------- Função Excluir ----------------------------------------------------
+
+function [voos, resultado] = excluir(vooss,idd,nvooo)
+%Percorrendo matriz voos
+for l=1:1:50
+    for c=1:1:11
+        if vooss(l,1)~=nvooo
+            resultado=0;
+         end
+        if vooss(l,c)==nvoo
+            for cc=2:1:11
+                if vooss(l,c)~=idd
+                    resultado=1;
+                    end
+                if vooss(l,cc)==idd
+                    %Excluindo voo adicionando '0', que como foi dito no início de projeto respresenta a ausência de passageiro
+                    vooss(l,cc)=0;
+                    resultado=2
+                    cc=12; %faz com que saia desse for
+                 end
+             end
+         end
+      end
+  end
+end
+
+%Passando a matriz auxiliar vooss para voos e a retornando ao programa principal
+voos=vooss;
+
+return voos, resultado
+
+
+---------------------------------------------------- Voo do Passageiro ----------------------------------------------------
+
+function resultado = vooDoPassageiro(vooss,idd)
+%Percorrendo matriz voos
+for l=1:1:50
+    for c=1:1:11
+        if vooss(l,c)==idd
+            resultado=voos(l,1));
+            disp('o passageiro de id %d esta no voo %d.\n',idd,resultado)
+         end
+     end
+ end
+ 
+return resultado
+
+
+---------------------------------------------------- Imprimir Voo ----------------------------------------------------
+
+function resultado = imprimirVoo(vooss,nvooo)
+%Percorrendo matriz voos
+for l=1:1:50
+    for c=2:1:11
+        if vooss(l,1)~=nvooo
+             resultado=0;
+         end
+        if vooss(l,1)==nvooo
+            if vooss(l,c)~=0
+            fprintf('\nO passageiro de id %d esta no voo.',voos(l,c))
+            numero_de_passageiros=numero_de_passageiros+1;
+            resultado=1;
+            end
+         end
+         
+     end
+ end
+fprintf('\n Portanto, o voo conta com %d passageiros.',numero_de_passageiros);
+return resultado
+
+
+---------------------------------------------------- Função Principal ----------------------------------------------------
+
+clear;
+clc;
+
+opcao=menu('Entre com uma opcao: ','Inicializar dados','Incluir reserva','Excluir reserva','Imprimir voos de um determinado passageiro','Imprimir dados de um determinado voo','fechar Menu')
+
+if opcao==1
+    voos=inicializar()
+end
+
+    if opcao==2
+        id=input('Senhor passageiro, entre com o numero da indentidade, por favor: ')
+        nvoo=input('Senhor passageiro, entre com o numero do voo, por favor: ')
+        [voos, retorno]=incluir(voos,id,nvoo);
+         if retorno==0
+            disp('0 - Voo inexistente!')
+            end
+            if retorno==1
+            fprintf('1 - O voo %d esta lotado!',nvoo)
+            end
+            if retorno==2
+            fprintf('2 - O passageiro de carteira de identidade numero %d foi incluido no voo %d com sucesso.',id,nvoo)
+            end
+    end
+    
+     if opcao==3
+        id=input('Senhor passageiro, entre com o numero da indentidade, por favor: ')
+        nvoo=input('Senhor passageiro, entre com o numero do voo, por favor: ')
+        [voos, retorno]=excluir(voos,id,nvoo);
+            if retorno==0
+            fprintf('0 - O Voo %d inexistente!',nvoo)
+            end
+            if retorno==1
+            fprintf('1 - O passageiro de id %d nao existe!',id)
+            end
+            if retorno==2
+            fprintf('2 - O passageiro do voo %d de carteira de identidade numero %d foi excluido do voo com sucesso.',nvoo,id)
+            end
+    end
+    
+    if opcao==4
+        id=input('Entre com o numero da indentidade, por favor: ')
+        retorno=vooDoPassageiro(voos,id)
+    end
+        
+    if opcao==5
+        nvoo=input('Entre com o numero do voo, por favor: ')
+        retorno=imprimirVoo(voos, nvoo)
+        if retorno==0
+            fprintf('0 - O voo %d nao existe.',nvoo)
+    end
+        
